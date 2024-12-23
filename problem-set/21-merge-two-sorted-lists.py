@@ -8,9 +8,9 @@ class ListNode(object):
 
 class Solution(object):
     def mergeTwoLists(self, list1, list2):
-        if list1 == None:
+        if not list1:
             return list2
-        if list2 == None:
+        if not list2:
             return list1
         
         is_list1_small = list1.val <= list2.val
@@ -22,28 +22,24 @@ class Solution(object):
         else:
             list2 = list2.next
             
-        while list1 != None or list2 != None:
-            if list1 == None:
-                print("a")
+        while list1 or list2:
+            if not list1:
                 temp.next = ListNode(list2.val)
                 list2 = list2.next
                 temp = temp.next
                 continue
             
-            if list2 == None:
-                print("b")
+            if not list2:
                 temp.next = ListNode(list1.val)
                 list1 = list1.next
                 temp = temp.next
                 continue
             
             if list1.val <= list2.val:
-                print("c")
                 temp.next = ListNode(list1.val)
                 list1 = list1.next
                 temp = temp.next
                 continue
-            print("d")
             temp.next = ListNode(list2.val)
             list2 = list2.next
             temp = temp.next
