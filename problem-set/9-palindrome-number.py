@@ -4,7 +4,6 @@ class Solution(object):
       start = 0
       end = len(y) - 1
       while start <= end:
-        print(y[start], y[end])
         if y[start] != y[end]:
           return False
         start += 1
